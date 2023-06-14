@@ -1,0 +1,153 @@
+﻿<Page x:Class="BookShop.Pages.AddEditPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BookShop.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddEditPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="1" Background="#FF1A1A24"  CornerRadius="0 40 0 40">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Image Source="/Resources/logo2.jpg" Height="200" Width="200"></Image>
+                    <DockPanel Grid.Row="1">
+
+                        <StackPanel DockPanel.Dock="Top" Margin="0">
+                            <Button x:Name="BookBtn" Click="BookBtn_Click"  Width="100">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Книги</TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="DepartamentBtn" Click="DepartamentBtn_Click"  Width="100">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Отдел</TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="EmployeeBtn" Click="EmployeeBtn_Click"  Width="100">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Сотрудники</TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="StockBtn" Click="StockBtn_Click"  Width="100">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Склад</TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="TicketBtn" Click="TicketBtn_Click"  Width="100">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Заказы</TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="ShipBtn" Click="ShipBtn_Click"  Width="100">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Поставки</TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="HistoryBtn" Click="HistoryBtn_Click"  Width="100">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Сообщения</TextBlock>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                        <Button VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 " Width="80" x:Name="ExitBtn" Click="ExitBtn_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Выход</TextBlock>
+                            </StackPanel>
+                        </Button>
+                    </DockPanel>
+                </Grid>
+            </Border>
+        </Grid>
+        <Grid Grid.Column="1" Margin="30" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid Width="300" HorizontalAlignment="Left" >
+
+            </Grid>
+            <TextBlock x:Name="TitlePage" FontSize="25" HorizontalAlignment="Left" Grid.Row="0" Style="{StaticResource TxtBlock2}">Редактирование книги</TextBlock>
+            <Line Stretch="Fill"  Stroke="Gray" X2="1" StrokeThickness="5" Grid.Row="1"/>
+            <Border MinWidth="600" MaxWidth="550" Background="Gray" VerticalAlignment="Center" Margin="15" Padding="30" CornerRadius="20" Grid.Row="5">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <TextBlock Style="{StaticResource TxtBlock}">Наименование</TextBlock>
+                            <TextBox x:Name="NameTbx" Style="{StaticResource TxtBox}" Text="{Binding Name}"></TextBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <TextBlock Style="{StaticResource TxtBlock}">Издательство</TextBlock>
+                            <ComboBox x:Name="PublishCbx" Style="{StaticResource CmBox}" SelectedItem="{Binding Publish}" SelectedIndex="0"></ComboBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <TextBlock Style="{StaticResource TxtBlock}">Автор</TextBlock>
+                            <TextBox x:Name="AuthorTbx" Style="{StaticResource TxtBox}" Text="{Binding Author}"></TextBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <TextBlock Style="{StaticResource TxtBlock}">Дата публикации</TextBlock>
+                            <TextBox x:Name="ReleaseTbx" Style="{StaticResource TxtBox}" Text="{Binding DateOfPublish}"></TextBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <TextBlock Style="{StaticResource TxtBlock}">Количество страниц</TextBlock>
+                            <TextBox x:Name="QuanTbx" Style="{StaticResource TxtBox}" Text="{Binding NumberOfPages}"></TextBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <TextBlock Style="{StaticResource TxtBlock}">Жанр</TextBlock>
+                            <ComboBox x:Name="GenreCbx" Style="{StaticResource CmBox}" SelectedItem="{Binding Genre}" SelectedIndex="0"></ComboBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <TextBlock Style="{StaticResource TxtBlock}">Актуально</TextBlock>
+                            <RadioButton x:Name="ActiveRbtn"  IsChecked="{Binding IsActive}"></RadioButton>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <TextBlock Style="{StaticResource TxtBlock}">Стоимость</TextBlock>
+                            <TextBox x:Name="CostTbx" Style="{StaticResource TxtBox}" Text="{Binding Price}"></TextBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <TextBlock Style="{StaticResource TxtBlock}">Описание</TextBlock>
+                            <TextBox x:Name="TimeTbx" Style="{StaticResource TxtBox}" Text="{Binding Description}"></TextBox>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button x:Name="SaveBtn" Content="Сохранить" Click="SaveBtn_Click"  Margin="5"></Button>
+                            <Button  x:Name="Otmena" Click="Otmena_Click">Отмена</Button>
+                        </StackPanel>
+
+                    </StackPanel>
+
+
+                    <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+
+                        <Image Height="250" Width="200"  x:Name="BookImage" Source="{Binding ImagePath}"></Image>
+                        <Button Name="AddImageBtn" Click="AddImageBtn_Click">Добавить изображение</Button>
+
+
+                    </StackPanel>
+           
+            </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</Page>

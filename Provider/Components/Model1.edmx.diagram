@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="39cdc584e4194714896e09a9039a1247" Name="Diagram1">
+        <EntityTypeShape EntityType="Book_shopModel.Book" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Book_shopModel.BookOrder" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="Book_shopModel.BookShipment" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Book_shopModel.Delivery" Width="1.5" PointX="0.75" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="Book_shopModel.Department" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="Book_shopModel.ExecutionStage" Width="1.5" PointX="0.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Book_shopModel.Genre" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Book_shopModel.Order" Width="1.5" PointX="3" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Book_shopModel.Provider" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Book_shopModel.Publish" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Book_shopModel.PurchaseReceipt" Width="1.5" PointX="5.25" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="Book_shopModel.Role" Width="1.5" PointX="1.5" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Book_shopModel.Shipment" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Book_shopModel.State" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Book_shopModel.Stock" Width="1.5" PointX="5.25" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Book_shopModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Book_shopModel.User" Width="1.5" PointX="0.75" PointY="19.75" IsExpanded="true" />
+        <AssociationConnector Association="Book_shopModel.FK_Book_Genre" ManuallyRouted="false" />
+        <AssociationConnector Association="Book_shopModel.FK_Book_Publish" ManuallyRouted="false" />
+        <AssociationConnector Association="Book_shopModel.FK_BookOrder_Book" ManuallyRouted="false" />
+        <AssociationConnector Association="Book_shopModel.FK_BookShipment_Book" ManuallyRouted="false" />
+        <AssociationConnector Association="Book_shopModel.FK_Department_Book" ManuallyRouted="false" />
+        <AssociationConnector Association="Book_shopModel.FK_PurchaseReceipt_Book" ManuallyRouted="false" />
+        <AssociationConnector Association="Book_shopModel.FK_Stock_Book" ManuallyRouted="false" />
+        <AssociationConnector Association="Book_shopModel.FK_BookOrder_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="Book_shopModel.FK_BookShipment_Shipment" ManuallyRouted="false" />
+        <AssociationConnector Association="Book_shopModel.FK_Order_Delivery" ManuallyRouted="false" />
+        <AssociationConnector Association="Book_shopModel.FK_Department_Genre" ManuallyRouted="false" />
+        <AssociationConnector Association="Book_shopModel.FK_Order_ExecutionStage" ManuallyRouted="false" />
+        <AssociationConnector Association="Book_shopModel.FK_Order_User" ManuallyRouted="false" />
+        <AssociationConnector Association="Book_shopModel.FK_Order_User1" ManuallyRouted="false" />
+        <AssociationConnector Association="Book_shopModel.FK_Shipment_Provider" ManuallyRouted="false" />
+        <AssociationConnector Association="Book_shopModel.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="Book_shopModel.FK_Shipment_State" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Book_shopModel.Message" Width="1.5" PointX="4" PointY="22.25" />
+        <EntityTypeShape EntityType="Book_shopModel.StateMessage" Width="1.5" PointX="1.75" PointY="27.75" />
+        <AssociationConnector Association="Book_shopModel.FK_Message_StateMessage" />
+        <AssociationConnector Association="Book_shopModel.FK_Message_User" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

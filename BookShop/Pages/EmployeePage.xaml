@@ -1,0 +1,135 @@
+﻿<Page x:Class="BookShop.Pages.EmployeePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BookShop.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EmployeePage" IsVisibleChanged="Page_IsVisibleChanged">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="1" Background="#FF1A1A24"  CornerRadius="0 40 0 40">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Image Source="/Resources/logo2.jpg" Height="200" Width="200"></Image>
+                    <DockPanel Grid.Row="1">
+
+                        <StackPanel DockPanel.Dock="Top" Margin="0">
+                            <Button x:Name="BookBtn" Click="BookBtn_Click"  Width="100">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Книги</TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="DepartamentBtn" Click="DepartamentBtn_Click"  Width="100">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Отдел</TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="EmployeeBtn" Click="EmployeeBtn_Click"  Width="100">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Сотрудники</TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="StockBtn" Click="StockBtn_Click"  Width="100">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Склад</TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="TicketBtn" Click="TicketBtn_Click"  Width="100">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Заказы</TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="ShipBtn" Click="ShipBtn_Click"  Width="100">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Поставки</TextBlock>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="HistoryBtn" Click="HistoryBtn_Click"  Width="100">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Сообщения</TextBlock>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                        <Button VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 " Width="80" x:Name="ExitBtn" Click="ExitBtn_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Выход</TextBlock>
+                            </StackPanel>
+                        </Button>
+                    </DockPanel>
+                </Grid>
+            </Border>
+        </Grid>
+        <Grid Grid.Column="1" Margin="30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+           
+            <TextBlock x:Name="TitlePage" FontSize="25" HorizontalAlignment="Left" Grid.Row="0" Style="{StaticResource TxtBlock2}">Сотрудники</TextBlock>
+            <Line Stretch="Fill"  Stroke="Gray" X2="1" StrokeThickness="5" Grid.Row="1"/>
+            <Grid Grid.Row="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="65*"/>
+                    <RowDefinition Height="332*"/>
+                    <RowDefinition Height="53*"/>
+                </Grid.RowDefinitions>
+               
+                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="Поиск" VerticalAlignment="Center" Margin="5" Style="{StaticResource TxtBlock2}"></TextBlock>
+                        <TextBox x:Name="FindTb"  Margin="5" TextChanged="FindTb_TextChanged" Style="{StaticResource TxtBox}" ></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Сортировка" Margin="5" VerticalAlignment="Center" Style="{StaticResource TxtBlock2}"></TextBlock>
+                        <ComboBox  DisplayMemberPath="Name" SelectionChanged="RoleCb_SelectionChanged" Style="{StaticResource CmBox}"  Margin="5" x:Name="RoleCb"></ComboBox>
+                    </StackPanel>
+                </StackPanel>
+                <ListView Grid.Row="1" x:Name="EmployeeLW" d:ItemsSource="{d:SampleData ItemCount=5}"  >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="650"></ColumnDefinition>
+                                    <ColumnDefinition Width="700"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0" Orientation="Horizontal">
+                                  
+                                    <TextBlock Text="{Binding FUO,  StringFormat='{} Сотрудник: {0}'}" Style="{StaticResource TxtBlock}" Margin="5"></TextBlock>
+                                    <TextBlock Text="{Binding Email,  StringFormat='{} Электронная почта: {0}'}" Style="{StaticResource TxtBlock}" Margin="5"></TextBlock>
+                                    <TextBlock Text="{Binding Phone,  StringFormat='{} Номер телефона: {0}'}" Style="{StaticResource TxtBlock}" Margin="5"></TextBlock>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="1" Orientation="Vertical">
+                                    <Button Content="Удалить" Background="LightBlue" x:Name="DeletBtn"  Click="DeletBtn_Click" Width="100"></Button>
+                                    <Button Content="Редактировать" x:Name="EditBtn"   Click="EditBtn_Click" Width="100" Background="LightCoral"></Button>
+                                </StackPanel>
+                            </Grid>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button Grid.Row="2"  Content="Добавить" Name="AddDtn" HorizontalAlignment="Right" Click="AddDtn_Click" ></Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

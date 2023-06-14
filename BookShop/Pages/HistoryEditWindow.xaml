@@ -1,0 +1,29 @@
+﻿<Window x:Class="BookShop.Pages.HistoryEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookShop.Pages"
+        mc:Ignorable="d"
+        Title="Книжный магазин" Height="250" Width="400" ResizeMode="NoResize" Icon="/Resources/icon6.png">
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="#997950"></SolidColorBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="180"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock Style="{StaticResource TxtBlock}">Статус сообщения</TextBlock>
+                    <ComboBox x:Name="StateMessageCbx" Style="{StaticResource CmBox}" SelectedItem="{Binding StateMessage}" SelectedIndex="0"></ComboBox>
+                </StackPanel>
+            </StackPanel>
+
+        </StackPanel>
+        <Button x:Name="SaveBtn" Margin="5 0 80 0" Content="Сохранить" Grid.Row="1" VerticalAlignment="Top" Click="SaveBtn_Click"></Button>
+        <Button Grid.Row="1" Margin="60 0 0 60" VerticalAlignment="Top" x:Name="BackBtn" Click="BackBtn_Click" >Отмена</Button>
+    </Grid>
+</Window>

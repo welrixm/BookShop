@@ -1,0 +1,57 @@
+﻿<Application x:Class="Courier.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Courier"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <LinearGradientBrush x:Key="MainWhite" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#AE8625" Offset="0.0"></GradientStop>
+            <GradientStop Color="#F7EF8A" Offset="0.25"></GradientStop>
+            <GradientStop Color="#D2AC47" Offset="0.75"></GradientStop>
+            <GradientStop Color="#EDC967" Offset="1.0"></GradientStop>
+        </LinearGradientBrush>
+        <SolidColorBrush x:Key="MainOrange" Color="#fdb249"></SolidColorBrush>
+        <SolidColorBrush x:Key="MainPink" Color="#fed7c1"></SolidColorBrush>
+        <SolidColorBrush x:Key="MainPurple" Color="#eed4fe"></SolidColorBrush>
+        <Style TargetType="Control" x:Key="BaseControl">
+            <Setter Property="Width" Value="200"></Setter>
+            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="Margin" Value="13"></Setter>
+            <Setter Property="Padding" Value="5"></Setter>
+
+
+        </Style>
+        <Style TargetType="Button" x:Key="BaseWhiteButton">
+            <Setter Property="Background" Value="{StaticResource MainWhite}"></Setter>
+            <Setter Property="Height" Value="28"></Setter>
+
+            <Setter Property="Foreground" Value="Black"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="BorderBrush" Value="Black" ></Setter>
+            <Setter Property="BorderThickness" Value="1"></Setter>
+        </Style>
+        <Style TargetType="Button" BasedOn="{StaticResource BaseWhiteButton}">
+            <Setter Property="Margin" Value="10"></Setter>
+        </Style>
+        <Style TargetType="ComboBox" x:Key="CmBox" BasedOn="{StaticResource BaseControl}"></Style>
+        <Style TargetType="TextBox" x:Key="TxtBox" BasedOn="{StaticResource BaseControl}"></Style>
+        <Style TargetType="PasswordBox" x:Key="PswBox" BasedOn="{StaticResource BaseControl}"></Style>
+        <Style TargetType="TextBlock" x:Key="TxtBlock" >
+            <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="Foreground" Value="Black"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment"  Value="Center"></Setter>
+
+        </Style>
+        <Style TargetType="TextBlock" x:Key="TxtBlock2" >
+            <Setter Property="FontFamily" Value="Comic Sans MS"></Setter>
+            <Setter Property="Margin" Value="5"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment"  Value="Center"></Setter>
+
+        </Style>
+    </Application.Resources>
+</Application>

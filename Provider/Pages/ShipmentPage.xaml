@@ -1,0 +1,134 @@
+﻿<Page x:Class="Provider.Pages.ShipmentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Provider.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="1200"
+      Title="ShipmentPage"
+      DataContext="{Binding RelativeSource={RelativeSource Self}}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="1" Background="#FF1A1A24"  CornerRadius="0 40 0 40">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Image Source="/Resources/logo2.jpg" Height="200" Width="200"></Image>
+                    <DockPanel Grid.Row="1">
+
+                        <StackPanel DockPanel.Dock="Top" Margin="0">
+                            <Button x:Name="BookBtn" Click="BookBtn_Click"  Width="100">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Книги</TextBlock>
+                                </StackPanel>
+                            </Button>
+                            
+                            
+                            <Button x:Name="ShipBtn" Click="ShipBtn_Click"  Width="100">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock>Поставки</TextBlock>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                        <Button VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 " Width="80" x:Name="ExitBtn" Click="ExitBtn_Click">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock>Выход</TextBlock>
+                            </StackPanel>
+                        </Button>
+                    </DockPanel>
+                </Grid>
+            </Border>
+        </Grid>
+        <Grid Grid.Column="1" Margin="30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="TitlePage" FontSize="25" HorizontalAlignment="Left" Grid.Row="0" Style="{StaticResource TxtBlock2}">Поставки</TextBlock>
+            <Line Stretch="Fill"  Stroke="Gray" X2="1" StrokeThickness="5" Grid.Row="1"/>
+            <ListView x:Name="ListShipment" d:ItemsSource="{d:SampleData ItemCount=4}" ItemsSource="{Binding Shipments}" Grid.Row="5">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="180"></ColumnDefinition>
+                                <ColumnDefinition Width="620"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="90"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                                <RowDefinition Height="1*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Line Stretch="Fill"  Stroke="Black" X2="1" StrokeThickness="1" Grid.Row="4" Grid.ColumnSpan="2"/>
+                            <StackPanel>
+                                <TextBlock Grid.Row="0" Text="{Binding Id}" FontWeight="Bold" Style="{StaticResource TxtBlock}"></TextBlock>
+                                <TextBlock Grid.Column="0" Grid.Row="0" Text="{Binding Date}" Style="{StaticResource TxtBlock}"></TextBlock>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Orientation="Vertical">
+                                <TextBlock Style="{StaticResource TxtBlock}" Margin="5" >Этап обработки поставки:</TextBlock>
+                                <TextBlock  Text="{Binding State.Name}" Style="{StaticResource TxtBlock}" Foreground="Green"></TextBlock>
+                            </StackPanel>
+                            <StackPanel Grid.Row="2" Orientation="Vertical">
+                                <TextBlock Style="{StaticResource TxtBlock}" Margin="5" >Поставщик:</TextBlock>
+                                <TextBlock  Text="{Binding Provider.Name}" Style="{StaticResource TxtBlock}" ></TextBlock>
+                            </StackPanel>
+
+                            <ListBox Grid.Column="1" ItemsSource="{Binding BookShipments}" Width="500">
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel IsItemsHost="True"></WrapPanel>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                                    <TextBlock Style="{StaticResource TxtBlock}">Наименование:</TextBlock>
+                                                    <TextBlock Text="{Binding Book.Name}" Style="{StaticResource TxtBlock}"></TextBlock>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                                    <TextBlock Style="{StaticResource TxtBlock}">Количество товаров:</TextBlock>
+                                                    <TextBlock Text="{Binding Quantity}" Style="{StaticResource TxtBlock}"></TextBlock>
+                                                </StackPanel>
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                                    <TextBlock Style="{StaticResource TxtBlock}">Цена:</TextBlock>
+                                                    <TextBlock Text="{Binding Book.Price}" Style="{StaticResource TxtBlock}"></TextBlock>
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Text="{Binding TotalPrice, StringFormat='{} Цена закупки: {0:f} руб.'}" Style="{StaticResource TxtBlock}"></TextBlock>
+                                <TextBlock Text="{Binding Quantity, StringFormat='{} Общее количество товаров: {0:f}'}" Style="{StaticResource TxtBlock}"></TextBlock>
+                                <Button x:Name="BtnEditShip"  Click="BtnEditShip_Click"  Content="Фиксация изменений"></Button>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>
